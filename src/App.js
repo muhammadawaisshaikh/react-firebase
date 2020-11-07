@@ -21,7 +21,7 @@ function App() {
           {/* all components */} 
           <div>
             <Switch>
-              <Route exact path='/' component={AddItem}></Route>
+              <Route exact path='/' component={AllItems}></Route>
               <Route exact path='/addItem' component={AddItem}></Route>
               <Route exact path='/allItems' component={AllItems}></Route>
               <Route exact path='/detail' component={Detail}></Route>
