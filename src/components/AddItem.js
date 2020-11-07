@@ -10,7 +10,7 @@ class AddItem extends React.Component {
 
         this.state = {
             data: [],
-            loading: false,
+            loading: true,
             description: '',
             imageAsFile: '',
             imageAsUrl: ''
@@ -19,10 +19,6 @@ class AddItem extends React.Component {
 
     componentDidMount() {
         console.log("AddItem");
-
-        this.setState({
-            loading: true
-        });
     }
 
     handleChange = (event) => {
@@ -44,6 +40,7 @@ class AddItem extends React.Component {
             alert("Item could not be created." + error);
         } else {
             alert("Item Created successfully.");
+            this.setState({ loading: true });
         }
         });
         
@@ -59,10 +56,10 @@ class AddItem extends React.Component {
     }
 
     handleFireBaseUpload = e => {
-        const storage = firebase.storage();
-
         e.preventDefault();
 
+        this.setState({ loading: false });
+        const storage = firebase.storage();
         const uploadTask = storage.ref(`/images/${this.state.imageAsFile.name}`).put(this.state.imageAsFile);
 
         uploadTask.on('state_changed', 
@@ -103,7 +100,12 @@ class AddItem extends React.Component {
                                 </form>
 
                                 <div className="pt-4 text-center">
-                                    <a className="press" onClick={(e) => { this.handleFireBaseUpload(e) }}>Save</a>
+                                    {
+                                        this.state.loading ?
+                                        <a className="press" onClick={(e) => { this.handleFireBaseUpload(e) }}>Save</a>
+                                        :
+                                        <p>Uploading Data ...</p>
+                                    }
                                 </div>
                              </div>
 
