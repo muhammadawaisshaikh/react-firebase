@@ -54,17 +54,15 @@ class AllItems extends React.Component {
         const dbRef = firebase.database().ref('items');
     
         dbRef.on('value', (snapshot) => {
-          const items = snapshot.val();
-    
-          for (let id in items) {
-            data.push({ id, ...items[id] });
-          }
+            const items = snapshot.val();
+        
+            for (let id in items) {
+                data.push({ id, ...items[id] });
+            }
 
-          this.setState({ data: data });
+            this.setState({ data: data });
             this.setState({ loading: false });
         });
-
-        console.log(this.state.data);
       };
 
     render() {
@@ -90,8 +88,8 @@ class AllItems extends React.Component {
                                                 </div>
 
                                                 <div className="col-12 col-md-10 col-lg-10 bg-light p-4 rounded">
-                                                    <h3 className="text-capitalize">{this.state.data.description}</h3>
-                                                    <p>{this.state.data.description}</p>
+                                                    <h3 className="text-capitalize">{item.description ? item.description : 'No Description'}</h3>
+                                                    <p>{item.description ? item.description : 'No Description'}</p>
 
                                                     <Link to={{ pathname: "/detail", state: item }}>
                                                         <span><i className="fas fa-arrow-right"></i></span>

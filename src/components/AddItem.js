@@ -90,9 +90,9 @@ class AddItem extends React.Component {
                                  <h3>Add Items</h3>
 
                                  <form>
-                                    <div class="form-group mt-4">
-                                        <input type="file" class="form-control" onChange={(e) => { this.handleImageAsFile(e) }} />
-                                        <input type="text" name="description" class="form-control" placeholder="Description" onChange={(e) => { this.handleChange(e) }} />
+                                    <div className="form-group mt-4">
+                                        <input type="file" className="form-control" onChange={(e) => { this.handleImageAsFile(e) }} />
+                                        <input type="text" name="description" className="form-control" placeholder="Description" onChange={(e) => { this.handleChange(e) }} />
                                     </div>
                                 </form>
 

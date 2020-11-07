@@ -28,12 +28,12 @@ class Detail extends React.Component {
         
                             <div className="col-12 col-md-8 col-lg-8">
                                 <Link className="badge badge-pill badge-light px-3 py-2 back-btn" to="/allItems">
-                                    <i class="fas fa-chevron-left border-0 p-0"></i>
+                                    <i className="fas fa-chevron-left border-0 p-0"></i>
                                     <span className="pl-2">Back</span>
                                 </Link>
 
-                                <h3 className="text-capitalize">{this.state.data.description}</h3>
-                                <p>{this.state.data.description}</p>
+                                <h3 className="text-capitalize">{this.state.data.description ? this.state.data.description : 'No Description'}</h3>
+                                <p>{this.state.data.description ? this.state.data.description : 'No Description'}</p>
                             </div>
                         </div>
                     </div>
