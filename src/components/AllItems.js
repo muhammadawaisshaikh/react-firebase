@@ -90,8 +90,8 @@ class AllItems extends React.Component {
                                                 </div>
 
                                                 <div className="col-12 col-md-10 col-lg-10 bg-light p-4 rounded">
-                                                    <h3 className="text-capitalize">{item.description}</h3>
-                                                    <p>{item.description}</p>
+                                                    <h3 className="text-capitalize">{this.state.data.description ? this.state.data.description : 'No Description'}</h3>
+                                                    <p>{this.state.data.description ? this.state.data.description : 'No Description'}</p>
 
                                                     <Link to={{ pathname: "/detail", state: item }}>
                                                         <span><i className="fas fa-arrow-right"></i></span>
