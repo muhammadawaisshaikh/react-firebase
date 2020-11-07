@@ -1,8 +1,7 @@
 import React from 'react';
 import '../assets/css/allitems.css';
 import {Link} from 'react-router-dom'
-
-import image from '../assets/img/m1.jpg';
+import firebase from '../core/firebase/firebase';
 
 // Array
 let items = [
@@ -45,12 +44,28 @@ class AllItems extends React.Component {
     } 
 
     componentDidMount() {
-        console.log("All Items");
-
-        this.setState({
-            loading: true
-        });
+        this.getAll();
     }
+
+    getAll = () => {
+        this.setState({ loading: true });
+
+        let data = [];
+        const dbRef = firebase.database().ref('items');
+    
+        dbRef.on('value', (snapshot) => {
+          const items = snapshot.val();
+    
+          for (let id in items) {
+            data.push({ id, ...items[id] });
+          }
+
+          this.setState({ data: data });
+            this.setState({ loading: false });
+        });
+
+        console.log(this.state.data);
+      };
 
     render() {
         return(
@@ -63,22 +78,23 @@ class AllItems extends React.Component {
                         </div>
 
                         {
-                            items.map(
-                                (item, i) => {
+                            !this.state.loading ?
+                            this.state.data && this.state.data.map(
+                                (item, key) => {
                                     return(
-                                        <div className="col-12 col-md-12 col-lg-12">
+                                        <div className="col-12 col-md-12 col-lg-12" key={key}>
                                             <div className="row main">
                                                 
-                                                <div className="col-12 col-md-4 col-lg-4">
+                                                <div className="col-12 col-md-2 col-lg-2">
                                                     <img src={item.image} />
                                                 </div>
 
-                                                <div className="col-12 col-md-8 col-lg-8">
-                                                    <h3>{item.heading}</h3>
-                                                    <p>{item.text}</p>
+                                                <div className="col-12 col-md-10 col-lg-10 bg-light p-4 rounded">
+                                                    <h3 className="text-capitalize">{item.description}</h3>
+                                                    <p>{item.description}</p>
 
                                                     <Link to={{ pathname: "/detail", state: item }}>
-                                                        <span><i class="fas fa-arrow-right"></i></span>
+                                                        <span><i className="fas fa-arrow-right"></i></span>
                                                     </Link>
                                                 </div>
 
@@ -87,6 +103,8 @@ class AllItems extends React.Component {
                                     )
                                 }
                             )
+                            :
+                            <p className="py-5">Loading ...</p>
                         }
 
                     </div>

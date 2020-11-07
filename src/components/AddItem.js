@@ -42,7 +42,7 @@ class AddItem extends React.Component {
             alert("Item Created successfully.");
         }
         });
-        
+
         this.setState({ loading: true });
         this.props.history.push('/allItems');
     }
@@ -50,9 +50,6 @@ class AddItem extends React.Component {
     handleImageAsFile = (e) => {
         const image = e.target.files[0]
         this.setState({ imageAsFile: image });
-
-        console.log(e.target.files[0]);
-        console.log(this.state.imageAsFile);
     }
 
     handleFireBaseUpload = e => {
