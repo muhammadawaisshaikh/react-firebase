@@ -21,10 +21,10 @@ function App() {
           {/* all components */} 
           <div>
             <Switch>
-              <Route exact path='/' component={AllItems}></Route>
-              <Route exact path='/addItem' component={AddItem}></Route>
-              <Route exact path='/allItems' component={AllItems}></Route>
-              <Route exact path='/detail' component={Detail}></Route>
+              <Route exact path='/react-firebase' component={AllItems}></Route>
+              <Route exact path='/react-firebase/addItem' component={AddItem}></Route>
+              <Route exact path='/react-firebase/allItems' component={AllItems}></Route>
+              <Route exact path='/react-firebase/detail' component={Detail}></Route>
             </Switch>
           </div>
           
