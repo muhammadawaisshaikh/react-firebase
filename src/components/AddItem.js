@@ -40,10 +40,10 @@ class AddItem extends React.Component {
             alert("Item could not be created." + error);
         } else {
             alert("Item Created successfully.");
-            this.setState({ loading: true });
         }
         });
         
+        this.setState({ loading: true });
         this.props.history.push('/allItems');
     }
 
