@@ -1,0 +1,48 @@
+.all {
+    padding: 5% 0;
+}
+
+.all .main{
+    margin-top: 10%;
+}
+
+.all h1{
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.all .main h3{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.all .main p{
+    color: gray;
+    font-size: 14px;
+    padding-top: 8px;
+}
+
+.all .main i{
+    border: 3px solid;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 4%;
+    font-size: 15px;
+    color: darkcyan;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.all .main i:hover{
+    color: black;
+    transition: 0.5s;
+    opacity: 0.5s;
+}
+
+.all img{
+    margin-top: 5%;
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+}
+
