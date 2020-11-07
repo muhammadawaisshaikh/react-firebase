@@ -32,8 +32,8 @@ class Detail extends React.Component {
                                     <span className="pl-2">Back</span>
                                 </Link>
 
-                                <h3 className="text-capitalize">{this.state.data.description ? this.state.data.description : 'No Description'}</h3>
-                                <p>{this.state.data.description ? this.state.data.description : 'No Description'}</p>
+                                <h3 className="text-capitalize">{this.state.data.description}</h3>
+                                <p>{this.state.data.description}</p>
                             </div>
                         </div>
                     </div>
