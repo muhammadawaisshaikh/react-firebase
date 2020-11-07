@@ -20,8 +20,8 @@ function Header() {
                         <div className="col-sm-8 col-md-8 col-lg-8">
                             <div className="nav">
                                  <ul>
-                                    <li><Link to="/addItem">Add Item</Link></li>
-                                    <li><Link to="/allItems">All Items</Link></li>
+                                    <li><Link to="/react-firebase/addItem">Add Item</Link></li>
+                                    <li><Link to="/react-firebase/allItems">All Items</Link></li>
                                  </ul>
                             </div>
                         </div>
